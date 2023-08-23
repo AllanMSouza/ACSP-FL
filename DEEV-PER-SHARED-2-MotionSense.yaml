@@ -1,0 +1,795 @@
+version: '3'
+services:
+
+  server:
+    image: 'allanmsouza/deev:server_fl'
+    container_name: fl_server
+    environment:
+      - SERVER_IP=0.0.0.0:9999
+      - NUM_CLIENTS=24
+      - NUM_ROUNDS=100
+      - ALGORITHM=DEEV
+      - POC=0.5
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - DATASET=MotionSense
+      - MODEL=DNN
+      - DECAY=0.01
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role==manager
+    
+
+  client-0:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=0
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.4448743623219755"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-1:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=1
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.7729098268058168"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-2:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=2
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.5334449736163913"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-3:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=3
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.7158516345486945"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-4:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=4
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.946721486296258"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-5:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=5
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.117821539034862"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-6:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=6
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.3313574139981157"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-7:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=7
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.512710748527085"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-8:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=8
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.6094034133364639"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-9:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=9
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.9399390185723723"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-10:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=10
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.5692678457533193"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-11:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=11
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.240019648485333"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-12:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=12
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.6659672789052666"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-13:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=13
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.911022520245982"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-14:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=14
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.563212402304891"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-15:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=15
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.520006117770828"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-16:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=16
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.56923522684457"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-17:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=17
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.1337812834674654"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-18:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=18
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.6926379493481987"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-19:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=19
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.026638495230168"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-20:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=20
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.3318289137093338"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-21:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=21
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.06520014783899"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-22:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=22
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.6093440484231851"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-23:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=23
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=MotionSense
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=15
+      - TIME2STARTMAX=45
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.6100160170178472"
+      placement:
+        constraints:
+          - node.role==worker
+          
+

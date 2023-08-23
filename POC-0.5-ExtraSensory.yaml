@@ -1,0 +1,1707 @@
+version: '3'
+services:
+
+  server:
+    image: 'allanmsouza/deev:server_fl'
+    container_name: fl_server
+    environment:
+      - SERVER_IP=0.0.0.0:9999
+      - NUM_CLIENTS=60
+      - NUM_ROUNDS=100
+      - ALGORITHM=POC
+      - POC=0.5
+      - SOLUTION_NAME=POC
+      - DATASET=ExtraSensory
+      - MODEL=DNN
+      - DECAY=0.01
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role==manager
+    
+
+  client-0:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=0
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.2011780914195493"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-1:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=1
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.3752164380779457"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-2:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=2
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.107944671469311"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-3:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=3
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.633698939591999"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-4:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=4
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.3179492650037388"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-5:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=5
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.474035832994052"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-6:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=6
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.306530191830886"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-7:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=7
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.6000297991978827"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-8:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=8
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.118989233604967"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-9:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=9
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.669966767342296"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-10:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=10
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.3148074248711845"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-11:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=11
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.492747553300642"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-12:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=12
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.353873111487774"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-13:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=13
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.7611473592552482"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-14:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=14
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.275591389145969"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-15:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=15
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.3906529251661789"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-16:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=16
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.696691522182459"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-17:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=17
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.666271540004961"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-18:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=18
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.967061035657349"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-19:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=19
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.6184216749085184"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-20:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=20
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.1343184676030507"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-21:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=21
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.8013146233250058"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-22:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=22
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.3862371919078256"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-23:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=23
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.448657581411498"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-24:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=24
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.1694099910701519"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-25:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=25
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5155637745694224"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-26:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=26
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.25034515412503"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-27:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=27
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.1370009556651692"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-28:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=28
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.124128574225195"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-29:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=29
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.665385692301539"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-30:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=30
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.4608546002066856"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-31:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=31
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.2553886164909116"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-32:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=32
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.7391289748927244"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-33:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=33
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.9383213154890564"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-34:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=34
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.8487164655477937"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-35:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=35
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.693868871462949"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-36:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=36
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.554316886339768"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-37:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=37
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.013569594212248"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-38:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=38
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.4248779557579945"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-39:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=39
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.0768042542330996"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-40:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=40
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.547285149077068"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-41:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=41
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.168349330343751"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-42:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=42
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.46756979671092214"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-43:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=43
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.019494802901212"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-44:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=44
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.8229324449299265"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-45:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=45
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.2146404016098185"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-46:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=46
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.624940432208836"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-47:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=47
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.406495446957836"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-48:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=48
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.2414561205906645"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-49:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=49
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.315905301409671"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-50:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=50
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.4912016291492376"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-51:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=51
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.355112251331839"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-52:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=52
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.686080779903312"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-53:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=53
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.3459464018656835"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-54:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=54
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.978947678548242"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-55:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=55
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.6381904469971698"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-56:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=56
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.6431551406742115"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-57:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=57
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.226721919347406"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-58:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=58
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.5269863718110417"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-59:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=59
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=POC
+      - ALGORITHM=POC
+      - DATASET=ExtraSensory
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.12334702393013591"
+      placement:
+        constraints:
+          - node.role==worker
+          
+

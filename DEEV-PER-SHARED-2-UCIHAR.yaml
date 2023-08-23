@@ -1,0 +1,1017 @@
+version: '3'
+services:
+
+  server:
+    image: 'allanmsouza/deev:server_fl'
+    container_name: fl_server
+    environment:
+      - SERVER_IP=0.0.0.0:9999
+      - NUM_CLIENTS=30
+      - NUM_ROUNDS=100
+      - ALGORITHM=DEEV
+      - POC=0.5
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - DATASET=UCIHAR
+      - MODEL=DNN
+      - DECAY=0.01
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.role==manager
+    
+
+  client-0:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=0
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.22760457993873"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-1:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=1
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.9461555192849589"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-2:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=2
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.13368269582884"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-3:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=3
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.7579137589396017"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-4:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=4
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.9165284958259"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-5:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=5
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.9286742305470135"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-6:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=6
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5387622981280756"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-7:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=7
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.8922320820167808"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-8:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=8
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.976939687702702"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-9:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=9
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.19239227777562642"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-10:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=10
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.7008684820662285"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-11:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=11
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.4259664514031831"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-12:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=12
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.3351606062394406"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-13:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=13
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.713002470734272"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-14:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=14
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.7607866006361935"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-15:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=15
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.5710400957909622"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-16:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=16
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "0.6727186248564044"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-17:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=17
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.176742886682257"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-18:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=18
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "3.9254644064966184"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-19:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=19
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.480034387702428"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-20:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=20
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.073551957092153"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-21:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=21
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.952898346102223"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-22:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=22
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "5.255058102657511"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-23:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=23
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.7419222459082768"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-24:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=24
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.211423088634803"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-25:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=25
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.705688441506822"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-26:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=26
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "1.9807515970757787"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-27:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=27
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "2.3505774435234983"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-28:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=28
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.411246488325231"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
+  client-29:
+    image: 'allanmsouza/deev:client_fl'
+    environment:
+      - SERVER_IP=fl_server:9999
+      - CLIENT_ID=29
+      - MODEL=DNN
+      - CLIENT_SELECTION=True
+      - LOCAL_EPOCHS=1
+      - SOLUTION_NAME=DEEV-PER-SHARED-2
+      - ALGORITHM=DEEV
+      - DATASET=UCIHAR
+      - POC=0.5
+      - DECAY=0.01
+      - TRANSMISSION_THRESHOLD=-1 
+      - PERSONALIZATION=True
+      - SHARED_LAYERS=2
+      - TIME2STARTMIN=5
+      - TIME2STARTMAX=30
+    volumes:
+      - ./logs:/logs
+    networks:
+      - default
+    restart: always
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: "4.598435934065522"
+      placement:
+        constraints:
+          - node.role==worker
+          
+
