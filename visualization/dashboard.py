@@ -10,6 +10,7 @@ import pandas as pd
 global DATASET  
 global SOLUTION 
 
+PATH = '/home/allanmsouza/Projects/ACSP-FL/logs'
 DATASET  = 'UCIHAR'
 SOLUTION = 'FedAvg-None'
 
@@ -62,7 +63,7 @@ def solution_fl(select_value):
     return select_value
 
 def create_server_plot():
-    # server_df = pd.read_csv('logs/MotionSense/{SOLUTION}/DNN/server.csv',  
+    # server_df = pd.read_csv('{PATH}/MotionSense/{SOLUTION}/DNN/server.csv',  
     #                     names=['timestamp', 'round', 'acc', 'acc2', 'acc3'])
     # fig = px.line(server_df, x='round', y='acc', markers=True, line_color=dict(color="#0000ff"))
     fig = go.Figure()
@@ -85,7 +86,7 @@ def create_server_plot():
     return fig
 
 def create_network_plot():
-    # client_df = pd.read_csv('logs/MotionSense/{SOLUTION}/DNN/train_client.csv',
+    # client_df = pd.read_csv('{PATH}/MotionSense/{SOLUTION}/DNN/train_client.csv',
     #                     names=['round', 'cid', 'selected', 'time', 'param', 'loss', 'acc'])
     fig = go.Figure()
     #fig = px.bar(client_df, x='cid', y='param')
@@ -106,7 +107,7 @@ def create_network_plot():
     return fig
 
 def create_latency_plot():
-    # client_df = pd.read_csv('logs/MotionSense/{SOLUTION}/DNN/train_client.csv',
+    # client_df = pd.read_csv('{PATH}/MotionSense/{SOLUTION}/DNN/train_client.csv',
     #                     names=['round', 'cid', 'selected', 'time', 'param', 'loss', 'acc'])
     # df_grouped = client_df.groupby('round').max()
     fig = go.Figure()
@@ -126,7 +127,7 @@ def create_latency_plot():
 
 def create_selection_plot():
     #1, 15, 93424, 1.7241395711898804, 0.29165393114089966
-    # client_df = pd.read_csv('logs/MotionSense/{SOLUTION}/DNN/evaluate_client.csv',
+    # client_df = pd.read_csv('{PATH}/MotionSense/{SOLUTION}/DNN/evaluate_client.csv',
     #                     names=['round', 'cid', 'size', 'loss', 'acc'])
     fig = go.Figure()
     #fig = client_df, x='cid', y='selected'
@@ -280,7 +281,7 @@ app.layout = html.Div(
 def update_server_plot(n_intervals):
     global DATASET
     global SOLUTION
-    server_df = pd.read_csv(f'logs/{DATASET}/{SOLUTION}/DNN/server.csv',  
+    server_df = pd.read_csv(f'{PATH}/{DATASET}/{SOLUTION}/DNN/server.csv',  
                          names=['timestamp', 'round', 'acc', 'acc2', 'acc3'])
     server_df = server_df[server_df['round'] <= n_intervals]
     fig = go.Figure()
@@ -300,7 +301,7 @@ def update_server_plot(n_intervals):
 def update_network_plot(n_intervals):
     global DATASET
     global SOLUTION
-    client_df = pd.read_csv(f'logs/{DATASET}/{SOLUTION}/DNN/train_client.csv',
+    client_df = pd.read_csv(f'{PATH}/{DATASET}/{SOLUTION}/DNN/train_client.csv',
                         names=['round', 'cid', 'selected', 'time', 'param', 'loss', 'acc'])
     client_df2 = client_df[client_df['round'] <= n_intervals].copy()
     trace = go.Bar(x=client_df2['cid'], y=client_df2['param'], marker_color='#ff7519')
@@ -321,7 +322,7 @@ def update_network_plot(n_intervals):
 def update_latency_plot(n_intervals):
     global DATASET
     global SOLUTION
-    server_df = pd.read_csv(f'logs/{DATASET}/{SOLUTION}/DNN/server.csv',  
+    server_df = pd.read_csv(f'{PATH}/{DATASET}/{SOLUTION}/DNN/server.csv',  
                          names=['timestamp', 'round', 'acc', 'acc2', 'acc3'])
     
     server_df = server_df[server_df['round'] <= n_intervals]
@@ -346,7 +347,7 @@ def update_latency_plot(n_intervals):
 def update_client_plot(n_intervals):
     global DATASET
     global SOLUTION
-    client_df = pd.read_csv(f'logs/{DATASET}/{SOLUTION}/DNN/evaluate_client.csv',
+    client_df = pd.read_csv(f'{PATH}/{DATASET}/{SOLUTION}/DNN/evaluate_client.csv',
                         names=['round', 'cid', 'size', 'loss', 'acc'])
     
     

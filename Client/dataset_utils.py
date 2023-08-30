@@ -62,18 +62,18 @@ class ManageDatasets():
 	        
 		y_train = train['activity'].values
 		train.drop('activity', axis=1, inplace=True)
-		train.drop('subject', axis=1, inplace=True)
-		train.drop('trial', axis=1, inplace=True)
-		# train['subject'] /= 24.0
-		# train['trial']   /= 16.0
+		#train.drop('subject', axis=1, inplace=True)
+		#train.drop('trial', axis=1, inplace=True)
+		train['subject'] /= 24.0
+		train['trial']   /= 16.0
 		x_train = train.values
 
 		y_test = test['activity'].values
 		test.drop('activity', axis=1, inplace=True)
-		# test['subject'] /= 24.0
-		# test['trial']   /= 16.0
-		test.drop('subject', axis=1, inplace=True)
-		test.drop('trial', axis=1, inplace=True)
+		test['subject'] /= 24.0
+		test['trial']   /= 16.0
+		#test.drop('subject', axis=1, inplace=True)
+		#test.drop('trial', axis=1, inplace=True)
 		x_test = test.values
 	    
 		return x_train, y_train, x_test, y_test
