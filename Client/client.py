@@ -148,7 +148,7 @@ class FedClient(fl.client.NumPyClient):
 				avg_acc_train      = history.history['accuracy'][-1]
 				
 
-				filename = f"logs/{self.dataset}/{self.solution_name}/{self.model_name}/train_client.csv"
+				filename = f"logs/{self.dataset}/{self.solution_name}/{self.model_name}/train_client_{self.cid}.csv"
 				os.makedirs(os.path.dirname(filename), exist_ok=True)
 
 				self.battery  = self.battery - (total_time * 0.05)
@@ -168,7 +168,7 @@ class FedClient(fl.client.NumPyClient):
 
 			#transmission or train failled
 			else:
-				filename = f"logs/{self.dataset}/{self.solution_name}/{self.model_name}/failures.csv"
+				filename = f"logs/{self.dataset}/{self.solution_name}/{self.model_name}/failures_{self.cid}.csv"
 				os.makedirs(os.path.dirname(filename), exist_ok=True)
 
 				with open(filename, 'a') as log_failure_file:
@@ -195,7 +195,7 @@ class FedClient(fl.client.NumPyClient):
 				loss     = loss_local
 				accuracy = acc_local
 
-		filename = f"logs/{self.dataset}/{self.solution_name}/{self.model_name}/evaluate_client.csv"
+		filename = f"logs/{self.dataset}/{self.solution_name}/{self.model_name}/evaluate_client_{self.cid}.csv"
 		os.makedirs(os.path.dirname(filename), exist_ok=True)
 
 		with open(filename, 'a') as log_evaluate_file:

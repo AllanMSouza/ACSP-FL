@@ -6,13 +6,14 @@ import plotly.graph_objs as go
 
 import plotly.express as px
 import pandas as pd
+import os
 
 global DATASET  
 global SOLUTION 
 
-PATH = '/home/allanmsouza/Projects/ACSP-FL/logs'
-DATASET  = 'UCIHAR'
-SOLUTION = 'FedAvg-None'
+PATH = '/home/allanmsouza/Projects/ACSP-FL/docker-compose-files/logs'
+DATASET  = 'MotionSense'
+SOLUTION = 'DEEV-DEEV'
 
 # app = Dash(__name__)
 app = dash.Dash(external_stylesheets=[dbc.themes.LUMEN])
@@ -301,9 +302,19 @@ def update_server_plot(n_intervals):
 def update_network_plot(n_intervals):
     global DATASET
     global SOLUTION
-    client_df = pd.read_csv(f'{PATH}/{DATASET}/{SOLUTION}/DNN/train_client.csv',
-                        names=['round', 'cid', 'selected', 'time', 'param', 'loss', 'acc'])
-    client_df2 = client_df[client_df['round'] <= n_intervals].copy()
+    
+    all_clients_df = pd.DataFrame()
+
+    files = os.listdir(f'{PATH}/{DATASET}/{SOLUTION}/DNN/')
+    for file in files:
+        if 'train_client' not in file:
+            continue
+        client_df = pd.read_csv(f'{PATH}/{DATASET}/{SOLUTION}/DNN/{file}',
+                            names=['round', 'cid', 'selected', 'time', 'param', 'loss', 'acc'])
+        
+        all_clients_df = pd.concat([all_clients_df, client_df])
+
+    client_df2 = all_clients_df[all_clients_df['round'] <= n_intervals].copy()
     trace = go.Bar(x=client_df2['cid'], y=client_df2['param'], marker_color='#ff7519')
 
     client_df2.reset_index()
@@ -311,7 +322,7 @@ def update_network_plot(n_intervals):
 
     return [go.Figure(data=trace, layout=go.Layout(
             xaxis=dict(range=[- 1, max(client_df2['cid']) + 1]),
-            yaxis = dict(range=[min(client_df2['param']), max(max_value['param'].cumsum())+50]),
+            yaxis = dict(range=[0, max(max_value['param'].cumsum())+50]),
             ))
             ]
 
@@ -347,11 +358,18 @@ def update_latency_plot(n_intervals):
 def update_client_plot(n_intervals):
     global DATASET
     global SOLUTION
-    client_df = pd.read_csv(f'{PATH}/{DATASET}/{SOLUTION}/DNN/evaluate_client.csv',
+    all_clients_df = pd.DataFrame()
+
+    files = os.listdir(f'{PATH}/{DATASET}/{SOLUTION}/DNN/')
+    for file in files:
+        if 'evaluate_client' not in file:
+            continue
+        client_df = pd.read_csv(f'{PATH}/{DATASET}/{SOLUTION}/DNN/{file}',
                         names=['round', 'cid', 'size', 'loss', 'acc'])
+        
+        all_clients_df = pd.concat([all_clients_df, client_df])
     
-    
-    client_df = client_df[client_df['round'] == n_intervals]
+    client_df = all_clients_df[all_clients_df['round'] == n_intervals].copy()
     client_df.sort_values(by=['cid'], inplace=True)
     trace     = go.Bar(x=client_df['cid'], y=client_df['acc'], 
                          marker_color='#071f4a')
