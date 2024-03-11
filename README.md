@@ -20,8 +20,10 @@ The following datasets are available:
 - `--rounds` `-r`: total number of communication rounds
 - `--poc` `-`: percentagem of clients to be selected using PoC 
 - `--decay` `-`: decay factor for DEEV and ACSP-FL
-- `--personalization` `-`: enables personalization and partial model sharing
+- `--personalization` `-`: enables personalization and partial model sharing 
 - `--shared-layers` `-`: number of layers to be shared in the personalization phase
+
+**tip**: The ACSP-FL solution is the DEEV + Personalization enabled
 
 It is important to generate new images for both the Client and the Server with the Dockerfile from both directories. Then replace the image in the `create_dockercompose.py` script
 
