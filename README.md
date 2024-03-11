@@ -37,7 +37,7 @@ python create_dockercompose.py --client-selection='DEEV' --dataset='MNIST'
 ```shell
 docker compose -f <compose-file.yaml> --compatibility up 
 ```
-## How to cite?
+## Citation
 ```bibtex
 @article{acsp-fl,
 title = {Adaptive client selection with personalization for communication efficient Federated Learning},
