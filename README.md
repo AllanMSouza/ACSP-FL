@@ -11,17 +11,17 @@ The following datasets are available:
 - UCI-HAR
 - ExtraSensory
 
-## Parâmetros para gerar docker-compose-file:
-- `--clients` `-c`: Quantidade total de clientes
-- `--model` `-m`: Modelo de ML/DL para ser utilizado no treinamento (e.g., DNN, CNN, or Logistic Regression)
-- `--client-selection` `-`: Método para seleção de clientes (e.g., POC, DEEV)
-- `--dataset` `-d`: Dataset para ser utilizado no treinamento (e.g., MNIST, CIFAR10)
-- `--local-epochs` `-e`:  Quantidade de épocas locais de treinamento
-- `--rounds` `-r`: Número de rodadas de comunicação para o treinamento
-- `--poc` `-`: Porcentagem de clientes para ser selecionados no Power-of-Choice
-- `--decay` `-`: Parâmetros para decaimento no DEEV
+## docker-compose-file generator parameters:
+- `--clients` `-c`: number of clients
+- `--model` `-m`: model to be used in the simulation (e.g., DNN, CNN, or Logistic Regression)
+- `--client-selection` `-`: client selection method 
+- `--dataset` `-d`: Dataset to be used by the clients
+- `--local-epochs` `-e`:  number of local epochs in each client
+- `--rounds` `-r`: total number of communication rounds
+- `--poc` `-`: percentagem of clients to be selected using PoC 
+- `--decay` `-`: decay factor for DEEV and ACSP-FL
 
-É importante gerar novas imagens tanto para o Cliente quanto para o Servidor com o Dockerfile de ambos os diretórios. Em seguida, substitua a imagem no script `create_dockercompose.py`
+It is important to generate new images for both the Client and the Server with the Dockerfile from both directories. Then replace the image in the `create_dockercompose.py` script
 
 ## Creating Docker compose files:
 ```python
