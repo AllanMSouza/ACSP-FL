@@ -101,6 +101,15 @@ class FedClient(fl.client.NumPyClient):
 		global_parameters       = self.global_model.get_weights()
 		personalized_parameters = local_parameters
 
+		if 'DYNAMIC' in self.solution_name:
+			if self.local_acc < 0.3:
+				shared_layers = 3
+				self.shared_layers = shared_layers
+			else:
+				shared_layers = int(1.0/float(self.local_acc))
+				self.shared_layers = shared_layers
+				print(shared_layers)
+
 		shared_layers = (1 + (2 * (shared_layers - 1) )) * -1
 		
 		while shared_layers < 0:
