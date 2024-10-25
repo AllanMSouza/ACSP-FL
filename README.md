@@ -37,6 +37,13 @@ python create_dockercompose.py --client-selection='DEEV' --dataset='MNIST'
 ```shell
 docker compose -f <compose-file.yaml> --compatibility up 
 ```
+
+## Dashboard
+
+
+![img](visualization/dashboard.png)
+
+
 ## Citation
 ```bibtex
 @article{acsp-fl,
