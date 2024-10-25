@@ -40,7 +40,7 @@ docker compose -f <compose-file.yaml> --compatibility up
 
 ## Dashboard
 
-![](visualization/dashboard.png)
+![](visualization/dashboard_2.png)
 
 
 ## Citation
